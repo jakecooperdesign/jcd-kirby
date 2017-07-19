@@ -1,0 +1,20 @@
+{% set projects = page('projects').children.visible %}
+
+{% if limit is defined %}
+    {% set projects = projects.limit(limit) %}
+{% endif %}
+
+<div class="columns">
+    {% for project in projects %}
+        <article class="project column is-4-md">
+            {% set image = project.images | first %}
+            {% if image %}
+                {% set image = image.crop(600,600) %}
+                <figure>
+                    <img src="{{image.url()}}" alt="{{image.filename()}}">
+                </figure>
+            {% endif %}
+            <h3 class="showcase-title"><a href="{{project.url()}}">{{project.title}}</a></h3>
+        </article>
+    {% endfor %}
+</div>

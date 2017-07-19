@@ -1,0 +1,26 @@
+<div class="columns">
+	{% for member in members %}
+		<div class="column">
+			<article class="team-item">
+				<figure class="team-portrait">
+					<img src="{{member.image.url()}}" alt="{{member.title}}">
+				</figure>
+				<div class="team-info">
+					<header class="has-padding-vert-xs">
+						<h3 class="is-marginless">{{member.title}}</h3>
+						<p class="team-position is-marginless is-tracked-caps is-small">{{member.position}}</p>
+					</header>
+					<div class="team-about">
+						{{member.about.kirbytext | raw}}
+					</div>
+				</div>
+				<div class="team-contact">
+					<i>Phone:</i><br />
+					{{ kirbytag({tel:member.phone})}}<br>
+					<i>Email:</i><br />
+					<a href="mailto:{{member.email}}">{{member.email}}</a><br />
+				</div>
+			</article>
+		</div>
+	{% endfor %}
+</div>	

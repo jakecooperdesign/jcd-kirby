@@ -1,0 +1,10 @@
+title: Test Settings
+
+fields:
+  title:
+    label: Titlelllll
+    type:  text
+
+  text:
+    label: Textllll
+    type:  textarea

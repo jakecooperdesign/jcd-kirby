@@ -1,0 +1,28 @@
+{% include '@snippets/header.twig' %}
+
+  <main class="main" role="main">
+  	{% block page_header %}
+		<header class="page-header has-bg-primary has-padding-vert-large has-text-center is-color-white">
+			<div class="container">
+				<h1 class="is-marginless is-fs-6">{{page.title}}</h1>
+				<div class="has-padding-top-xs is-6 has-margin-auto">
+					{{page.intro.kirbytext | raw}}
+				</div>
+			</div>
+		</header>
+  	{% endblock %}
+
+    {% block before_content %}{% endblock %}
+
+  	{% block content %}
+  		<section class="page-body has-padding-vert">
+  			<div class="container">
+  				{{page.text.kirbytext | raw}}
+  			</div>
+  		</section>
+  	{% endblock %}
+
+  	{% block after_content %}{% endblock %}
+  </main>
+
+{% include '@snippets/footer.twig' %}

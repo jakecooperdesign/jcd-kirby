@@ -1,0 +1,37 @@
+{% extends '@templates/base.twig' %}
+{% block page_header %}{% endblock %}
+{% block content %}
+<article class="article">
+  <header class="page-header has-bg-primary has-padding-vert has-text-center is-color-white">
+    <div class="container">
+      <p class="is-small is-tracked-caps is-marginless">{{page.date('F jS, Y')}}</p>
+      <h1 class="is-marginless is-fs-5">{{page.title}}</h1>
+    </div>
+  </header>
+
+  <section class="page-body article-text has-padding-vert">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-8 is-offset-2">
+          {% include '@snippets/coverimage.twig' with {article: page} %}
+          {{page.text.kirbytext | raw}}
+
+          <footer class="article-footer has-padding-vert-small">
+            {% if page.hasNextVisible or page.hasPrevVisible %}
+              <nav class="nav">
+                {% if page.hasNextVisible %}
+                  <a href="{{page.nextVisible.url}}" class="btn btn-default is-color-accent">&larr; {{page.nextVisible.title}}</a>
+                {% endif %}
+                {% if page.hasPrevVisible %}
+                  <a href="{{page.prevVisible.url}}" class="btn btn-default is-color-accent has-margin-left-xs">{{page.prevVisible.title}} &rarr;</a>
+                {% endif %}
+              </nav>
+            {% endif %}
+          </footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</article>
+{% endblock %}    

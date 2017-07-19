@@ -1,0 +1,11 @@
+{% extends '@templates/base.twig' %}
+
+{% block after_content %}
+<section class="team has-padding-vert has-bg-grey-2">
+	<div class="container">
+		<h2>Our Purring Team</h2>
+
+		{% include '@snippets/team.twig' with {members: page.children.visible} %}		
+	</div>	  
+</section>
+{% endblock %}

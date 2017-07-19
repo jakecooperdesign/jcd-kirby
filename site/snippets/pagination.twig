@@ -1,0 +1,10 @@
+{% if pagination.hasPages() %}
+<nav class="nav">
+  {% if pagination.hasPrevPage() %}
+    <a href="{{ pagination.prevPageURL() }}" class="pagination-item btn btn-default is-color-accent">&larr; Previous Page</a>
+  {% endif %}
+  {% if pagination.hasNextPage() %}
+    <a href="{{ pagination.nextPageURL() }}" class="pagination-item btn btn-default is-color-accent">Next Page &rarr;</a>
+  {% endif %}
+</nav>
+{% endif %}

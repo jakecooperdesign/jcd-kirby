@@ -1,0 +1,36 @@
+{% extends '@templates/base.twig' %}
+{% block content %}
+<section class="page-content has-padding-vert">
+  <div class="container">
+
+    {% if articles.count() %}
+      {% for article in articles %}
+        <article class="article has-padding-vert has-border-bottom is-6-md">
+          {% include '@snippets/coverimage.twig' with {article: article} %}
+
+          <header class="article-header has-padding-bottom-xs">
+            <p class="article-date is-marginless is-tracked-caps is-small">{{ article.date('F jS, Y') }}</p>
+            <h2 class="article-title is-marginless">
+              <a href="{{article.url}}">{{article.title}}</a>
+            </h2>
+          </header>
+          <div class="article-text">
+            <p>
+              {{ article.text.kirbytext.excerpt(50, 'words') }}
+              <a href="{{ article.url }}" class="article-more">read more</a>
+            </p>
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p>No articles to show yet.</p>
+    {% endif %}
+
+    <footer class="has-padding-vert">
+      <div class="container">
+        {% include '@snippets/pagination.twig' %}
+      </div>
+    </footer>
+  </div>
+</section>
+{% endblock %}

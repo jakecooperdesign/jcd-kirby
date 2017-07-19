@@ -1,0 +1,20 @@
+{% extends '@templates/base.twig' %}
+{% block content %}
+	<section class="page-body has-padding-vert">
+		<div class="container">
+			{{page.text.kirbytext | raw}}
+		</div>
+	</section>
+
+	<section class="projects-section has-bg-grey-2">
+		<div class="container has-padding-vert">
+			<h2>Latest Projects</h2>
+			{% include '@snippets/showcase.twig' with {limit: 3} %}
+
+			<footer class="has-padding-top">
+				<p class="projects-section-more"><a href="{{ page('projects').url }}" class="btn btn-default is-color-accent is-tracked-caps">show all projects</a></p>
+			</footer>
+		</div>
+	</section>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends '@templates/base.twig' %}
+{% block content %}
+    <header class="wrap">
+      <h1>{{page.title}}</h1>
+      <div class="intro text">
+        {{page.year}}
+      </div>
+      <hr />
+    </header>
+    
+    <div class="text wrap">
+      {{page.text.kirbytext | raw}}   
+
+      {% for image in page.images %}
+        <figure>
+          <img src="{{image.url()}}" alt="{{image.name()}}">
+        </figure>
+      {% endfor %}   
+
+
+    </div>
+    
+    {{ snippet('prevnext') }}
+{% endblock %}    

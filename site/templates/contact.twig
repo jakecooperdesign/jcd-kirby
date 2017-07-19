@@ -1,0 +1,40 @@
+{% extends '@templates/base.twig' %}
+{% block before_content %}
+<section class="contact has-padding-vert">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    
+    <div class="contact-options columns">
+      {% for item in page.contactoptions.toStructure() %}
+        {% set icon = page.image(item.icon) %}
+        <div class="column">
+          <article class="contact">
+
+            <figure class="has-bg-grey-10 has-round-corners has-padding has-margin-bottom-small">
+              <img src="{{icon.url()}}" width="{{icon.width()}}" alt="{{item.title}} icon" class="contact-icon" />
+            </figure>
+
+            <header>
+              <h3 class="contact-title is-marginless">{{item.title}}</h3>
+              <p class="contact-text is-marginless">{{item.text}}</p>
+            </header>
+
+            <p class="contact-action has-padding-top-small">
+              <a href="{{item.url}}" class="contact-action btn btn-default is-color-accent btn-small">{{item.linktext}} &rarr;</a>
+            </p>
+          </article>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="team has-padding-vert has-bg-grey-2">
+  <div class="container">
+    <h2>Our Purring Team</h2>
+
+    {% include '@snippets/team.twig' with {members: page('about').children.visible} %}  
+  </div>    
+</section>
+{% endblock %}
+{% block content %}{% endblock %}

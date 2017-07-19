@@ -1,0 +1,28 @@
+title: Services
+
+pages: false
+
+fields: 
+  title:
+    label: Title
+    type: title
+  
+  intro:
+    label: Intro
+    type: textarea
+
+  text:
+    label: Text
+    type: textarea
+  
+  services:
+    label: Services
+    type: structure
+    # style: table
+    fields:
+      title:
+        label: Service Title
+        type: text
+      text:
+        label: Service Description
+        type: textarea

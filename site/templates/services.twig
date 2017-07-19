@@ -1,0 +1,16 @@
+{% extends '@templates/base.twig' %}
+
+{% block before_content %}
+<section class="service has-padding-vert">
+  <div class="container">
+    {% for service in page.services.toStructure() %}
+      <article class="service">
+        <h2 class="service-title is-marginless">{{service.title}}</h2>
+        <div class="service-body">
+          {{service.text.kirbytext | raw}}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

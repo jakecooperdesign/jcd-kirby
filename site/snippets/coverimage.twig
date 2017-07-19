@@ -1,0 +1,6 @@
+{% set image = article.coverimage.toFile() %}
+{% if image %}
+<figure class="has-padding-bottom-small">
+  <img src="{{image.url()}}" alt="{{image.filename()}} | {{article.title}}">
+</figure>
+{% endif %}
